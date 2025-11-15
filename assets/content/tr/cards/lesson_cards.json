@@ -1,0 +1,326 @@
+[
+  {
+    "id": "faith-1",
+    "title": "İman nedir?",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": [
+      "Bakara 2:285",
+      "Cibril hadisi (Buhari/Müslim)",
+      "İmam Tahavi Akidesi"
+    ],
+    "summary": "İman; Allah'ı, meleklerini, kitaplarını, peygamberlerini, ahiret gününü ve kaderi tasdik etmektir. Şükrü ve ahlaki cesareti uyandırır.",
+    "key_points": [
+      "İmanın altı şartı",
+      "Kadere güven",
+      "Amelle iman artar"
+    ],
+    "discussion_questions": [
+      "Bugün hangi rükün seni en çok etkiliyor?",
+      "Kadere iman sıkıntılara bakışını nasıl değiştirir?",
+      "İmanı günlük hangi alışkanlıklar besler?"
+    ],
+    "quiz_mcq": [
+      {"q": "İmanın kaç şartı vardır?", "options": ["3", "4", "5", "6"], "answer": "6"},
+      {"q": "Kadere iman hangi duyguyu doğurur?", "options": ["Kaygı", "Tevekkül", "Kibir", "İhmal"], "answer": "Tevekkül"},
+      {"q": "Vahyi Peygamber'e ﷺ hangi melek getirdi?", "options": ["Mikail", "İsrafil", "Cebrail", "Azrail"], "answer": "Cebrail"}
+    ],
+    "tags": ["iman", "temel", "itikad"]
+  },
+  {
+    "id": "prayer-1",
+    "title": "Namazın Ritmi",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": [
+      "Bakara 2:43",
+      "Hadis: 'Namaz nurdur'",
+      "İmam Gazali, İbadetin İç Boyutları"
+    ],
+    "summary": "Günde beş vakit namaz mümini merkeze alır; kalbi temizler ve zamanı Allah'ı zikretmek üzerine kurar.",
+    "key_points": [
+      "Beş vakit farz",
+      "Hușû ve iç disiplin",
+      "Cemaat bağı"
+    ],
+    "discussion_questions": [
+      "Namaz vakitlerini korumak için hangi düzeni uyguluyorsun?",
+      "Allahu ekber demeden önce huşûyu nasıl hazırlarsın?",
+      "Hangi vakit namazı seni en çok dönüştürüyor?"
+    ],
+    "quiz_mcq": [
+      {"q": "Günde kaç vakit farz namaz vardır?", "options": ["3", "4", "5", "6"], "answer": "5"},
+      {"q": "Kıbleye yönelmek neyi sembolize eder?", "options": ["Birlik", "Yarış", "Yalnızlık", "Resmiyet"], "answer": "Birlik"},
+      {"q": "Her rekâtta okunan açılış sûresi hangisidir?", "options": ["Bakara", "Felak", "Fâtiha", "Nâs"], "answer": "Fâtiha"}
+    ],
+    "tags": ["ibadet", "namaz", "pratik"]
+  },
+  {
+    "id": "character-1",
+    "title": "Nebevî Ahlak",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": [
+      "Kalem 68:4",
+      "Hadis: 'Sizin en hayırlınız ahlakça en güzel olanınızdır'",
+      "İmam Tirmizi, Şemail"
+    ],
+    "summary": "Resûlullah ﷺ merhamet, adalet ve sabrı kuşandı; güzel ahlak mizanda en ağır ameldir.",
+    "key_points": [
+      "Tüm mahlûkata merhamet",
+      "Söz ve fiilde adalet",
+      "Sıkıntıda sabır"
+    ],
+    "discussion_questions": [
+      "Bu hafta hangi nebevî vasfı güçlendirmek istiyorsun?",
+      "Gergin anlarda merhameti nasıl gösterirsin?",
+      "Çevrende kim peygamber ahlakını yansıtıyor?"
+    ],
+    "quiz_mcq": [
+      {"q": "Kıyamet gününde mizanda en ağır amel nedir?", "options": ["Mal", "Soy", "Güzel ahlak", "Güç"], "answer": "Güzel ahlak"},
+      {"q": "Peygamberimizin ﷺ tebessümünü en çok hangi sahabi nakletti?", "options": ["Ebu Hureyre", "Enes b. Malik", "Ömer", "Halid"], "answer": "Enes b. Malik"},
+      {"q": "Merhamet kimlere gösterilirdi?", "options": ["Hayvanlar", "Bitkiler", "Düşmanlar", "Hepsi"], "answer": "Hepsi"}
+    ],
+    "tags": ["ahlak", "siyer", "erdem"]
+  },
+  {
+    "id": "neighbors-1",
+    "title": "Komşu Hakları",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": ["Nisa 4:36", "Buhari", "İmam Nevevi kırk hadis"],
+    "summary": "Komşuya iyilik akrabalık gibidir; onları beslemek, korumak ve incitmemek imanın gereğidir.",
+    "key_points": ["İkram ve misafirperverlik", "Zararı engellemek", "Adalet ve saygı"],
+    "discussion_questions": [
+      "Komşulara pratik olarak nasıl destek olabilirsin?",
+      "Mahallende huzuru koruyan sınırlar nelerdir?",
+      "Komşun sana zarar verirse nasıl karşılık verirsin?"
+    ],
+    "quiz_mcq": [
+      {"q": "Komşuya karşı Peygamberî öğüt nedir?", "options": ["Görmezden gel", "Yararlan", "İyilik yap", "Yarış"], "answer": "İyilik yap"},
+      {"q": "Komşuya yemek paylaşmak nasıl görülür?", "options": ["Sadece âdet", "İsraf", "İman göstergesi", "Batıl"], "answer": "İman göstergesi"},
+      {"q": "Komşular hakkında Peygamber'e ﷺ sürekli öğüt veren melek kimdi?", "options": ["İsrafil", "Mikail", "Cebrail", "Rıdvan"], "answer": "Cebrail"}
+    ],
+    "tags": ["toplum", "hak", "ahlak"]
+  },
+  {
+    "id": "family-1",
+    "title": "Ailede Nebevî Yol",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": ["İsra 17:23-24", "Rum 30:21", "Hadis: 'Sizin en hayırlınız ailesine karşı en güzel olanınızdır'"],
+    "summary": "Anne-babayı yüceltmek, eşleri sevmek ve çocukları şefkatle büyütmek eve sekînet ve rahmet getirir.",
+    "key_points": ["Anne-babaya ihsan", "Karşılıklı merhamet", "Oyun ve eğitim"],
+    "discussion_questions": [
+      "Stres anında evde merhameti nasıl yaşatırsın?",
+      "Evliliği güçlendiren nebevî alışkanlıklar neler?",
+      "Çocuklarla oyunu ibadete nasıl dönüştürebilirsin?"
+    ],
+    "quiz_mcq": [
+      {"q": "Kur'an'a göre eşler birbirine ne gibidir?", "options": ["Dağ", "Elbise", "Yıldız", "Nehir"], "answer": "Elbise"},
+      {"q": "Peygamberimizin ﷺ eşiyle koştuğunu hangi annemiz aktardı?", "options": ["Aişe", "Fatıma", "Hafsa", "Hatice"], "answer": "Aişe"},
+      {"q": "Anne-babaya ihsanın bir gereği nedir?", "options": ["Yüksek sesle konuşmak", "Nazik konuşmak", "Alenen eleştirmek", "Hediye beklemek"], "answer": "Nazik konuşmak"}
+    ],
+    "tags": ["aile", "hak", "ahlak"]
+  },
+  {
+    "id": "charity-1",
+    "title": "Zekât ve Sadaka",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": ["Bakara 2:271", "Tevbe 9:60", "İmam Malik, Muvatta"],
+    "summary": "Sadaka malı arındırır, kalbi yumuşatır ve toplumu yoksulluktan korur.",
+    "key_points": ["Arınma", "Dayanışma", "Adalet"],
+    "discussion_questions": [
+      "Ramazan dışı dönemde sürekli verme nasıl mümkün olur?",
+      "Mahallende acil destek bekleyen ihtiyaçlar neler?",
+      "Sevdiğinden vermek hangi duyguları uyandırıyor?"
+    ],
+    "quiz_mcq": [
+      {"q": "Birikmiş mala zekât oranı nedir?", "options": ["%1", "%2.5", "%5", "%10"], "answer": "%2.5"},
+      {"q": "Zekât kimlere verilebilir?", "options": ["Zenginler", "Yolda kalmışlar", "Tüccarlar", "Hocalar"], "answer": "Yolda kalmışlar"},
+      {"q": "Gizli sadaka neyi korur?", "options": ["Vergi", "Fakirlik", "Gösteriş", "Yağmur"], "answer": "Gösteriş"}
+    ],
+    "tags": ["sadaka", "ekonomi", "toplum"]
+  },
+  {
+    "id": "fasting-1",
+    "title": "Ramazan Oruçları",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": ["Bakara 2:183", "Hadis: 'Oruç kalkandır'", "İbn Receb, Lataif"],
+    "summary": "Oruç takvayı, empatiyi ve disiplinli yaşamı öğretir; Ramazan kalbi Kur'an ve gece ibadetiyle yeniler.",
+    "key_points": ["Takva", "Yoksulla empati", "Gece ibadeti"],
+    "discussion_questions": [
+      "Ramazan'a hazırlığı ne zaman başlatırsın?",
+      "Bayramdan sonra hangi alışkanlıkları sürdürmek istersin?",
+      "Uzun yaz günlerinde ailece nasıl destek olursunuz?"
+    ],
+    "quiz_mcq": [
+      {"q": "Oruç ibadetinin ana hedefi nedir?", "options": ["Şöhret", "Kilo vermek", "Takva", "Ticaret"], "answer": "Takva"},
+      {"q": "Bin aydan hayırlı gece hangisidir?", "options": ["Berat", "Kadir", "Arefe", "Aşure"], "answer": "Kadir"},
+      {"q": "Oruç tutamayacak derecede yaşlı olan ne yapar?", "options": ["Telafi oruç", "Fidye verir", "Hiçbir şey", "Yolculuk"], "answer": "Fidye verir"}
+    ],
+    "tags": ["oruç", "maneviyat", "ramazan"]
+  },
+  {
+    "id": "hajj-1",
+    "title": "Hac Yolculuğu",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": ["Hac 22:27", "Veda hutbesi", "İmam Nevevi hac rehberi"],
+    "summary": "Hac, İbrahim ve İsmail'in inşa ettiği Beyt etrafında ümmeti toplar; fedakârlığı ve birliği hatırlatır.",
+    "key_points": ["Küresel birlik", "Fedakârlık ve sabır", "Peygamberleri anmak"],
+    "discussion_questions": [
+      "Hac derslerini günlük hayatına nasıl taşırsın?",
+      "Yolculukta hacılar birbirine nasıl destek olur?",
+      "Safâ-Merve sa'yi kimin teslimiyetini hatırlatır?"
+    ],
+    "quiz_mcq": [
+      {"q": "Hac kimlere farzdır?", "options": ["Herkese", "Sadece âlimlere", "Gücü yeten Müslümanlara", "Hiç kimseye"], "answer": "Gücü yeten Müslümanlara"},
+      {"q": "Safâ-Merve arasında koşu kimin hatırasıdır?", "options": ["Musa", "Meryem", "Hacer", "Asiye"], "answer": "Hacer"},
+      {"q": "Arafat vakfesi hangi gündür?", "options": ["8 Zilhicce", "9 Zilhicce", "10 Zilhicce", "12 Zilhicce"], "answer": "9 Zilhicce"}
+    ],
+    "tags": ["hac", "birlik", "peygamberler"]
+  },
+  {
+    "id": "knowledge-1",
+    "title": "İlim Talebi",
+    "level": "başlangıç",
+    "tradition": "İslam",
+    "core_texts": ["Taha 20:114", "Hadis: 'İlim talebi her Müslümana farzdır'", "İmam Nevevi, İlmin Âdâbı"],
+    "summary": "Samimiyet, tevazu ve devamlı tekrar ile ilim öğrenmek ibadettir; niyet, hoca ve müzakere olmazsa olmazdır.",
+    "key_points": ["Samimi niyet", "Hocalara tevazu", "Tekrar ve uygulama"],
+    "discussion_questions": [
+      "Öğrenme yolculuğunda kim seni yönlendiriyor?",
+      "Ezber ile anlamayı nasıl dengeliyorsun?",
+      "Eski dersleri tekrar etmeye seni ne motive eder?"
+    ],
+    "quiz_mcq": [
+      {"q": "İlk inen kelime neydi?", "options": ["Namaz kıl", "Oku", "Savaş", "Ver"], "answer": "Oku"},
+      {"q": "İlim hangi unsurla değer kazanır?", "options": ["Övünmek", "Amel", "Yalnızlık", "Servet"], "answer": "Amel"},
+      {"q": "İlim talebi kimler için farzdır?", "options": ["Sadece erkekler", "Sadece kadınlar", "Her Müslüman", "Âlimler"], "answer": "Her Müslüman"}
+    ],
+    "tags": ["ilim", "niyet", "gelişim"]
+  },
+  {
+    "id": "dialogue-1",
+    "title": "Dinlerarası Dostluk",
+    "level": "orta",
+    "tradition": "Dinlerarası",
+    "core_texts": ["Ankebut 29:46", "Medine Vesikası", "Sina Keşişlerine Mektup"],
+    "summary": "En güzel sözle konuş, ortak değerleri vurgula ve Allah'a sadakatle toplum yararına işbirliği yap.",
+    "key_points": ["Diyalog adabı", "Ortak hizmet", "İtikadda samimiyet"],
+    "discussion_questions": [
+      "Farklı inançtaki komşularla güven nasıl kurulur?",
+      "Mahallende hangi hizmet projeleri birleştiriyor?",
+      "İnancını korurken işbirliğini nasıl sürdürebilirsin?"
+    ],
+    "quiz_mcq": [
+      {"q": "Ankebut 29:46 bizi nasıl konuşmaya çağırır?", "options": ["Sert", "Alaycı", "En güzel sözle", "Sessiz"], "answer": "En güzel sözle"},
+      {"q": "Medine Vesikası hangi grupları korudu?", "options": ["Sadece Müslümanları", "Sadece Yahudileri", "Tüm vatandaşları", "Tüccarları"], "answer": "Tüm vatandaşları"},
+      {"q": "Dinlerarası dostluk nereye götürmelidir?", "options": ["İnancı sulandırmaya", "Karşılıklı hizmete", "Tartışmaya", "Uzak durmaya"], "answer": "Karşılıklı hizmete"}
+    ],
+    "tags": ["diyalog", "toplum", "sivil"]
+  },
+  {
+    "id": "seerah-1",
+    "title": "Nebevî Davetin Aşamaları",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": ["İbn Hişam Siyer", "İnşirah 94:1-5", "Hira hadisesi"],
+    "summary": "Mekke'deki sabırdan Medine'de kurum inşasına uzanan nebevî süreç, bugün toplumsal çalışmalara yol gösterir.",
+    "key_points": ["Gizli davet", "Açık tebliğ", "Medine sözleşmesi"],
+    "discussion_questions": [
+      "İlk yıllarda davetin gizli tutulmasının hikmeti neydi?",
+      "Peygamber ﷺ zulme karşı hangi stratejilerle sabretti?",
+      "Hicret ümmetin sorumluluklarını nasıl değiştirdi?"
+    ],
+    "quiz_mcq": [
+      {"q": "Mekke dönemi kaç yıl sürdü?", "options": ["10", "13", "15", "20"], "answer": "13"},
+      {"q": "Medine'ye gönderilen ilk muallim kimdi?", "options": ["Mus'ab b. Umeyr", "Bilal", "Hamza", "Abbas"], "answer": "Mus'ab b. Umeyr"},
+      {"q": "Medine Vesikası neyi vurguladı?", "options": ["Kabile üstünlüğü", "Eşit vatandaşlık", "Tek kabile", "Sadece ticaret"], "answer": "Eşit vatandaşlık"}
+    ],
+    "tags": ["siyer", "tarih", "strateji"]
+  },
+  {
+    "id": "andalus-1",
+    "title": "Endülüs'ten Dersler",
+    "level": "ileri",
+    "tradition": "Tarih",
+    "core_texts": ["İbn Hazm eserleri", "Nahl 16:90", "Makrizi kronikleri"],
+    "summary": "Endülüs, ilim ağları, mimari ve birlikte yaşam kültürüyle öne çıktı; çöküşü bölünme ve rehavetten sakındırır.",
+    "key_points": ["Birlikte yaşam", "Bilim ve kültür", "Çöküş sebepleri"],
+    "discussion_questions": [
+      "Seni en çok etkileyen Endülüs kurumu hangisi?",
+      "İç çekişme Granada'nın düşüşünü nasıl hızlandırdı?",
+      "Diaspora Müslümanları bugün hangi dersleri alabilir?"
+    ],
+    "quiz_mcq": [
+      {"q": "Sütunlar ormanı olarak bilinen ulu cami hangi şehirdedir?", "options": ["Sevilla", "Kurtuba", "Toledo", "Granada"], "answer": "Kurtuba"},
+      {"q": "Convivencia neyi ifade eder?", "options": ["Dinler arası işbirliği", "Deniz savaşları", "Çöl yolculuğu", "Ticaret tekeli"], "answer": "Dinler arası işbirliği"},
+      {"q": "Son Nasrî emir hangi yılda teslim oldu?", "options": ["1085", "1212", "1492", "1517"], "answer": "1492"}
+    ],
+    "tags": ["tarih", "medeniyet", "ders"]
+  },
+  {
+    "id": "science-1",
+    "title": "Bilim ve İman Âlimleri",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": ["Alak 96:1-5", "El-Biruni Kanun", "İbn Heysem Optik"],
+    "summary": "Klasik Müslüman âlimler tıp, astronomi ve optikte ilerlerken keşfi tevhid ve hizmetle temellendirdi.",
+    "key_points": ["İman-akıl uyumu", "Deney ve gözlem", "Topluma hizmet"],
+    "discussion_questions": [
+      "Âlimler araştırmalarını nasıl finanse etti?",
+      "Onları kibirden koruyan edep neydi?",
+      "Bugün merak merkezli öğrenmeyi nasıl diriltebiliriz?"
+    ],
+    "quiz_mcq": [
+      {"q": "İbn Heysem hangi yöntemin öncüsü kabul edilir?", "options": ["Bilimsel yöntem", "Matbaa", "Pusula", "Buhar makinesi"], "answer": "Bilimsel yöntem"},
+      {"q": "Bağdat'taki hastaneler ne diye anılırdı?", "options": ["Medrese", "Beytülhikme", "Bimaristan", "Zaviye"], "answer": "Bimaristan"},
+      {"q": "Dünyanın çevresini hassas biçimde ölçen kimdi?", "options": ["İbn Sina", "İbn Battuta", "El-Biruni", "İbn Haldun"], "answer": "El-Biruni"}
+    ],
+    "tags": ["bilim", "tarih", "yenilik"]
+  },
+  {
+    "id": "tazkiyah-1",
+    "title": "Tezkiyenin Yolu",
+    "level": "orta",
+    "tradition": "İslam",
+    "core_texts": ["Şems 91:9-10", "İmam Gazali İhya", "İmam Haddad Risalesi"],
+    "summary": "Nefsi arındırmak, muhasebe, murakabe ve salihlerle beraberlik ister.",
+    "key_points": ["Nefis muhasebesi", "Zikir ve murakabe", "Salihlerle dostluk"],
+    "discussion_questions": [
+      "Niyetlerini fark etmene yardım eden günlük uygulama nedir?",
+      "Dua ederken umut ve korku dengesini nasıl kurarsın?",
+      "Hangi zikir türleri seni canlı tutuyor?"
+    ],
+    "quiz_mcq": [
+      {"q": "Kur'an'a göre kurtuluşa eren kimdir?", "options": ["Mal kazanan", "Nefsini arındıran", "Çok gezen", "İyi tartışan"], "answer": "Nefsini arındıran"},
+      {"q": "Muhasebe ne anlama gelir?", "options": ["Meditasyon", "Nefsi hesaba çekme", "Sadaka", "Hac"], "answer": "Nefsi hesaba çekme"},
+      {"q": "Salihlerin dostluğu neye benzetilir?", "options": ["Attar", "Kuyumcu", "Seferci", "Tüccar"], "answer": "Attar"}
+    ],
+    "tags": ["maneviyat", "ahlak", "tasavvuf"]
+  },
+  {
+    "id": "fiqh-1",
+    "title": "Fıkhın Temelleri",
+    "level": "ileri",
+    "tradition": "İslam",
+    "core_texts": ["İmam Şafii Risalesi", "Maide 5:3", "Usulü fıkıh metinleri"],
+    "summary": "İslâm hukuku Kur'an, Sünnet, icmâ ve kıyastan hüküm çıkarır. Bu kaynakları bilmek ibadeti bilinçle yaşamayı sağlar.",
+    "key_points": ["Asli kaynaklar", "İcmâ", "Kıyas ve içtihat"],
+    "discussion_questions": [
+      "Kaynaklar aynı iken mezhepler neden farklı hükme varır?",
+      "Müctehidde bulunması gereken nitelikler nelerdir?",
+      "Usul ilmi keyfi hükümleri nasıl engeller?"
+    ],
+    "quiz_mcq": [
+      {"q": "İcmâ neyi ifade eder?", "options": ["Şahsi görüş", "Oy birliği", "Kıyas", "Örf"], "answer": "Oy birliği"},
+      {"q": "Kıyas nasıl tanımlanır?", "options": ["Lafzî yorum", "Analojik akıl yürütme", "Keşf", "Tarih incelemesi"], "answer": "Analojik akıl yürütme"},
+      {"q": "Risale hangi mezhebin usulünü sistemleştirdi?", "options": ["Hanefi", "Maliki", "Şafii", "Hanbeli"], "answer": "Şafii"}
+    ],
+    "tags": ["fıkıh", "usul", "ileri"]
+  }
+]

@@ -1,0 +1,326 @@
+[
+  {
+    "id": "faith-1",
+    "title": "What is Īmān (Faith)?",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": [
+      "Qur'an 2:285",
+      "Hadith Jibril (Bukhari/Muslim)",
+      "Imam al-Tahawi's Creed"
+    ],
+    "summary": "Faith is to affirm Allah, His angels, scriptures, messengers, the Last Day, and destiny. It awakens gratitude and moral courage.",
+    "key_points": [
+      "Six pillars of faith",
+      "Trust in Allah and His decree",
+      "Faith grows with practice"
+    ],
+    "discussion_questions": [
+      "Which pillar speaks to you today and why?",
+      "How does belief in destiny change your response to setbacks?",
+      "What habits nourish your faith daily?"
+    ],
+    "quiz_mcq": [
+      {"q": "How many pillars of faith are there?", "options": ["3", "4", "5", "6"], "answer": "6"},
+      {"q": "Belief in divine decree invites?", "options": ["Anxiety", "Trust", "Pride", "Neglect"], "answer": "Trust"},
+      {"q": "Which angel brought revelation to the Prophet ﷺ?", "options": ["Mikail", "Israfil", "Jibril", "Azrael"], "answer": "Jibril"}
+    ],
+    "tags": ["faith", "foundations", "belief"]
+  },
+  {
+    "id": "prayer-1",
+    "title": "The Rhythm of Salah",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": [
+      "Qur'an 2:43",
+      "Hadith: 'Prayer is light'",
+      "Imam al-Ghazali, Inner Dimensions of Worship"
+    ],
+    "summary": "Five daily prayers anchor the believer, cleansing the heart and structuring time around remembrance of God.",
+    "key_points": [
+      "Five prescribed times",
+      "Inner humility (khushūʿ)",
+      "Community connection"
+    ],
+    "discussion_questions": [
+      "What routine protects your salah times from distractions?",
+      "How do you cultivate khushūʿ before saying Allāhu akbar?",
+      "Which prayer do you find most transformative and why?"
+    ],
+    "quiz_mcq": [
+      {"q": "How many daily prayers are obligatory?", "options": ["3", "4", "5", "6"], "answer": "5"},
+      {"q": "Facing the qibla symbolises?", "options": ["Unity", "Competition", "Isolation", "Formality"], "answer": "Unity"},
+      {"q": "What is the opening chapter recited in every rakʿah?", "options": ["Al-Baqarah", "Al-Falaq", "Al-Fātiḥah", "Al-Nās"], "answer": "Al-Fātiḥah"}
+    ],
+    "tags": ["practice", "worship", "prayer"]
+  },
+  {
+    "id": "character-1",
+    "title": "Prophetic Character",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": [
+      "Qur'an 68:4",
+      "Hadith: 'Best in character'",
+      "Shama'il of Imam al-Tirmidhi"
+    ],
+    "summary": "The Prophet ﷺ embodied mercy, justice, and patience; good character is the heaviest deed on the scale.",
+    "key_points": [
+      "Mercy to all creation",
+      "Justice in word and action",
+      "Patience during trials"
+    ],
+    "discussion_questions": [
+      "Which prophetic trait do you wish to grow this week?",
+      "How do you show prophetic mercy in tense moments?",
+      "Who models prophetic character in your life?"
+    ],
+    "quiz_mcq": [
+      {"q": "What weighs heaviest on the Day of Judgement?", "options": ["Wealth", "Lineage", "Good character", "Power"], "answer": "Good character"},
+      {"q": "Which companion was known for transmitting the Prophet's ﷺ smile?", "options": ["Abu Hurayrah", "Anas ibn Malik", "Umar", "Khalid"], "answer": "Anas ibn Malik"},
+      {"q": "Mercy was shown even to?", "options": ["Animals", "Plants", "Enemies", "All of these"], "answer": "All of these"}
+    ],
+    "tags": ["ethics", "manners", "seerah"]
+  },
+  {
+    "id": "neighbors-1",
+    "title": "Rights of Neighbors",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 4:36", "Bukhari", "Imam Nawawi's Forty Hadith"],
+    "summary": "Kindness to neighbors is near to kinship; feeding, protecting, and never harming them is a sign of faith.",
+    "key_points": ["Care and hospitality", "Protection from harm", "Justice and respect"],
+    "discussion_questions": [
+      "How can you support neighbors in practical ways?",
+      "What boundaries maintain harmony on your street?",
+      "How do you respond if a neighbor wrongs you?"
+    ],
+    "quiz_mcq": [
+      {"q": "Prophetic teaching toward neighbors is to?", "options": ["Ignore", "Exploit", "Care", "Compete"], "answer": "Care"},
+      {"q": "Sharing food with neighbors is considered?", "options": ["Optional etiquette", "Wasteful", "Act of faith", "Superstition"], "answer": "Act of faith"},
+      {"q": "Which angel repeatedly advised the Prophet ﷺ about neighbors?", "options": ["Israfil", "Mikail", "Jibril", "Ridwan"], "answer": "Jibril"}
+    ],
+    "tags": ["community", "ethics", "rights"]
+  },
+  {
+    "id": "family-1",
+    "title": "Family the Prophetic Way",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 17:23-24", "Qur'an 30:21", "Hadith: 'The best of you is best to his family'"],
+    "summary": "Honoring parents, cherishing spouses, and nurturing children bring tranquility and mercy into the home.",
+    "key_points": ["Honor parents", "Mutual compassion", "Playful parenting"],
+    "discussion_questions": [
+      "How do you practice mercy at home when stressed?",
+      "What prophetic habits strengthen marriage?",
+      "How can play become an act of worship with children?"
+    ],
+    "quiz_mcq": [
+      {"q": "The Qur'an compares spouses to?", "options": ["Mountains", "Garments", "Stars", "Rivers"], "answer": "Garments"},
+      {"q": "Which companion narrated the Prophet ﷺ racing with his wife?", "options": ["Aisha", "Fatimah", "Hafsa", "Khadijah"], "answer": "Aisha"},
+      {"q": "Honoring parents includes?", "options": ["Speaking gently", "Ignoring advice", "Public criticism", "Demanding gifts"], "answer": "Speaking gently"}
+    ],
+    "tags": ["family", "rights", "character"]
+  },
+  {
+    "id": "charity-1",
+    "title": "Zakat & Sadaqah",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 2:271", "Qur'an 9:60", "Imam Malik's Muwatta"],
+    "summary": "Charity purifies wealth, heals the heart, and secures communities against poverty and neglect.",
+    "key_points": ["Purification", "Solidarity", "Economic justice"],
+    "discussion_questions": [
+      "How can giving become consistent beyond Ramadan?",
+      "Which local causes urgently need support?",
+      "What emotions arise when you give from what you love?"
+    ],
+    "quiz_mcq": [
+      {"q": "Zakat rate on savings is?", "options": ["1%", "2.5%", "5%", "10%"], "answer": "2.5%"},
+      {"q": "One category of zakat recipients is?", "options": ["Wealthy", "Travelers in need", "Merchants", "Teachers"], "answer": "Travelers in need"},
+      {"q": "Hidden sadaqah protects against?", "options": ["Taxes", "Poverty", "Showing off", "Rain"], "answer": "Showing off"}
+    ],
+    "tags": ["charity", "economics", "community"]
+  },
+  {
+    "id": "fasting-1",
+    "title": "Ramaḍān Fasting",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 2:183", "Hadith: 'Fasting is a shield'", "Ibn Rajab's Lata'if al-Ma'arif"],
+    "summary": "Fasting trains taqwā, empathy, and discipline; Ramaḍān renews the heart through Qur’an and night prayer.",
+    "key_points": ["God-consciousness", "Empathy for the poor", "Night worship"],
+    "discussion_questions": [
+      "How do you plan for Ramaḍān before it arrives?",
+      "What habits will you keep after Eid?",
+      "How can your family support one another during long fasts?"
+    ],
+    "quiz_mcq": [
+      {"q": "The primary goal of fasting is?", "options": ["Fame", "Weight loss", "Taqwā", "Business"], "answer": "Taqwā"},
+      {"q": "Which night is better than a thousand months?", "options": ["Mid-Shaʿbān", "Laylat al-Qadr", "ʿArafa", "ʿAshura"], "answer": "Laylat al-Qadr"},
+      {"q": "Who is exempt from fasting but must feed the poor?", "options": ["Traveler", "Elderly unable", "Student", "Merchant"], "answer": "Elderly unable"}
+    ],
+    "tags": ["fasting", "spirituality", "ramadan"]
+  },
+  {
+    "id": "hajj-1",
+    "title": "Ḥajj: Pilgrimage",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 22:27", "Farewell Sermon", "Imam Nawawi's Manual"],
+    "summary": "Pilgrimage gathers the ummah around the House built by Ibrahim and Ismail, recalling sacrifice and unity.",
+    "key_points": ["Global unity", "Sacrifice and patience", "Remembrance of prophets"],
+    "discussion_questions": [
+      "What lessons from Hajj can shape your daily ethics?",
+      "How do pilgrims support one another during the journey?",
+      "Which rites commemorate Hajar's trust in Allah?"
+    ],
+    "quiz_mcq": [
+      {"q": "Who must perform Hajj?", "options": ["All", "Only scholars", "Able Muslims", "None"], "answer": "Able Muslims"},
+      {"q": "Running between Ṣafā and Marwa honors whose sacrifice?", "options": ["Musa", "Maryam", "Hajar", "Asiya"], "answer": "Hajar"},
+      {"q": "The standing at ʿArafah occurs on which day?", "options": ["8th Dhul-Hijjah", "9th Dhul-Hijjah", "10th Dhul-Hijjah", "12th Dhul-Hijjah"], "answer": "9th Dhul-Hijjah"}
+    ],
+    "tags": ["pilgrimage", "unity", "prophets"]
+  },
+  {
+    "id": "knowledge-1",
+    "title": "Seeking Knowledge",
+    "level": "beginner",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 20:114", "Hadith: 'Seek knowledge'", "Imam al-Nawawi's Etiquette of Seeking Knowledge"],
+    "summary": "Learning with humility and practice is worship; it begins with sincere intention, patient teachers, and steady review.",
+    "key_points": ["Sincere intention", "Humility before teachers", "Practice and review"],
+    "discussion_questions": [
+      "Who mentors you on your learning path?",
+      "How do you balance memorisation with understanding?",
+      "What motivates you to review past lessons?"
+    ],
+    "quiz_mcq": [
+      {"q": "The first revealed word was?", "options": ["Pray", "Read", "Fight", "Give"], "answer": "Read"},
+      {"q": "Knowledge must be paired with?", "options": ["Boasting", "Action", "Isolation", "Wealth"], "answer": "Action"},
+      {"q": "Seeking knowledge is obligatory on?", "options": ["Men only", "Women only", "Every Muslim", "Scholars"], "answer": "Every Muslim"}
+    ],
+    "tags": ["education", "intention", "growth"]
+  },
+  {
+    "id": "dialogue-1",
+    "title": "Interfaith Friendship",
+    "level": "intermediate",
+    "tradition": "Interfaith",
+    "core_texts": ["Qur'an 29:46", "Covenant of Madinah", "Letter to the Monks of Sinai"],
+    "summary": "Speak with excellence, affirm shared values, and collaborate for the common good while staying sincere to Islam.",
+    "key_points": ["Courtesy in dialogue", "Shared ethical projects", "Sincerity of faith"],
+    "discussion_questions": [
+      "How can you build trust with people of other faiths?",
+      "What service projects unite your community?",
+      "How do you stay rooted in your beliefs while cooperating?"
+    ],
+    "quiz_mcq": [
+      {"q": "Qur'an 29:46 teaches us to speak?", "options": ["Harshly", "Mockingly", "With best words", "In silence"], "answer": "With best words"},
+      {"q": "The Madinah Charter protected which groups?", "options": ["Only Muslims", "Only Jews", "All citizens", "Merchants"], "answer": "All citizens"},
+      {"q": "Interfaith friendship should lead to?", "options": ["Diluting faith", "Mutual service", "Argument", "Isolation"], "answer": "Mutual service"}
+    ],
+    "tags": ["dialogue", "community", "civics"]
+  },
+  {
+    "id": "seerah-1",
+    "title": "Phases of the Prophetic Mission",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": ["Ibn Hisham's Sīrah", "Qur'an 94:1-5", "Hadith of the Cave"],
+    "summary": "From Meccan patience to Madinan institution-building, the Prophetic mission unfolded in clear stages that still guide community work today.",
+    "key_points": ["Private devotion", "Public invitation", "Madinan constitution"],
+    "discussion_questions": [
+      "Why did the early believers keep their faith private for three years?",
+      "What strategies helped the Prophet ﷺ endure persecution?",
+      "How did the hijrah change the responsibilities of the ummah?"
+    ],
+    "quiz_mcq": [
+      {"q": "How many years did the Meccan phase last?", "options": ["10", "13", "15", "20"], "answer": "13"},
+      {"q": "Which companion served as the first ambassador to Madinah?", "options": ["Musʿab ibn ʿUmair", "Bilal", "Hamzah", "Abbas"], "answer": "Musʿab ibn ʿUmair"},
+      {"q": "The Constitution of Madinah emphasised?", "options": ["Tribal supremacy", "Equal citizenship", "One tribe", "Trade only"], "answer": "Equal citizenship"}
+    ],
+    "tags": ["seerah", "history", "strategy"]
+  },
+  {
+    "id": "andalus-1",
+    "title": "Lessons from Al-Andalus",
+    "level": "advanced",
+    "tradition": "History",
+    "core_texts": ["Ibn Hazm's Writings", "Qur'an 16:90", "Chronicles of al-Maqqari"],
+    "summary": "Muslim Spain pioneered knowledge networks, architecture, and convivencia. Its decline warns against division and complacency.",
+    "key_points": ["Shared civic life", "Pursuit of knowledge", "Causes of decline"],
+    "discussion_questions": [
+      "Which Andalusian institution impresses you most?",
+      "How did internal conflict hasten the fall of Granada?",
+      "What lessons can diaspora Muslims draw today?"
+    ],
+    "quiz_mcq": [
+      {"q": "Which city housed the Great Mosque with a forest of columns?", "options": ["Seville", "Cordoba", "Toledo", "Granada"], "answer": "Cordoba"},
+      {"q": "Convivencia describes?", "options": ["Interfaith cooperation", "Naval warfare", "Desert travel", "Trade monopoly"], "answer": "Interfaith cooperation"},
+      {"q": "The final Nasrid emir surrendered in?", "options": ["1085", "1212", "1492", "1517"], "answer": "1492"}
+    ],
+    "tags": ["history", "civilization", "lessons"]
+  },
+  {
+    "id": "science-1",
+    "title": "Scholars of Science & Faith",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 96:1-5", "Al-Biruni's Canon", "Ibn al-Haytham's Optics"],
+    "summary": "Classical Muslim scholars advanced medicine, astronomy, and optics while grounding discovery in tawḥīd and service.",
+    "key_points": ["Integration of faith and reason", "Experimentation", "Service to society"],
+    "discussion_questions": [
+      "How did scholars fund their scientific research?",
+      "What adab guarded them from arrogance?",
+      "How can we revive curiosity-driven learning today?"
+    ],
+    "quiz_mcq": [
+      {"q": "Ibn al-Haytham pioneered the?", "options": ["Scientific method", "Printing press", "Compass", "Steam engine"], "answer": "Scientific method"},
+      {"q": "Hospitals in Baghdad were known as?", "options": ["Madrasahs", "Bayt al-Hikma", "Bimaristans", "Zawiyahs"], "answer": "Bimaristans"},
+      {"q": "Which scholar measured Earth's circumference with remarkable accuracy?", "options": ["Ibn Sina", "Ibn Battuta", "Al-Biruni", "Ibn Khaldun"], "answer": "Al-Biruni"}
+    ],
+    "tags": ["science", "history", "innovation"]
+  },
+  {
+    "id": "tazkiyah-1",
+    "title": "Path of Tazkiyah (Spiritual Refinement)",
+    "level": "intermediate",
+    "tradition": "Islam",
+    "core_texts": ["Qur'an 91:9-10", "Imam al-Ghazali's Ihya", "Imam al-Haddad's Treatise"],
+    "summary": "Purifying the soul requires muḥāsabah (self-accounting), muraqabah (God-consciousness), and companionship with the righteous.",
+    "key_points": ["Self-accountability", "Remembrance", "Righteous companionship"],
+    "discussion_questions": [
+      "What daily practice helps you notice your intentions?",
+      "How do you balance hope and fear in dua?",
+      "Which forms of dhikr energise you most?"
+    ],
+    "quiz_mcq": [
+      {"q": "The Qur'an promises success to the one who?", "options": ["Earns wealth", "Purifies the soul", "Travels widely", "Argues well"], "answer": "Purifies the soul"},
+      {"q": "Muḥāsabah means?", "options": ["Meditation", "Self-accounting", "Charity", "Pilgrimage"], "answer": "Self-accounting"},
+      {"q": "Company of the righteous is compared to?", "options": ["Perfume seller", "Goldsmith", "Traveller", "Trader"], "answer": "Perfume seller"}
+    ],
+    "tags": ["spirituality", "character", "sufism"]
+  },
+  {
+    "id": "fiqh-1",
+    "title": "Foundations of Fiqh",
+    "level": "advanced",
+    "tradition": "Islam",
+    "core_texts": ["Imam al-Shafi'i's Risalah", "Qur'an 5:3", "Usul al-Fiqh primers"],
+    "summary": "Islamic law derives rulings from Qur'an, Sunnah, consensus, and analogy. Understanding these sources helps Muslims follow worship with clarity.",
+    "key_points": ["Primary sources", "Consensus", "Reasoning by analogy"],
+    "discussion_questions": [
+      "Why do madhhabs differ if the sources are the same?",
+      "What qualities must a mujtahid possess?",
+      "How does usul al-fiqh protect from whimsical rulings?"
+    ],
+    "quiz_mcq": [
+      {"q": "Ijmāʿ refers to?", "options": ["Individual opinion", "Consensus", "Analogy", "Custom"], "answer": "Consensus"},
+      {"q": "Qiyās is best described as?", "options": ["Literal reading", "Analogical reasoning", "Spiritual insight", "Historical study"], "answer": "Analogical reasoning"},
+      {"q": "The Risalah established principles for which madhhab?", "options": ["Hanafi", "Maliki", "Shafi'i", "Hanbali"], "answer": "Shafi'i"}
+    ],
+    "tags": ["law", "usul", "advanced"]
+  }
+]
