@@ -66,6 +66,17 @@ class AppLocalizations {
       'today_learn': 'Learn',
       'today_review': 'Review ({due} due)',
       'today_reflect': 'Reflect',
+      'practice_hub_title': 'Practice hub',
+      'practice_hub_subtitle': 'Quick drills to keep your streak thriving.',
+      'practice_flashcards': 'Review {due} flashcards',
+      'practice_quiz': 'Quiz time',
+      'practice_quiz_subtitle': 'Pick a lesson and test yourself.',
+      'practice_research': 'Skim key references and notes.',
+      'practice_timeline': 'Connect events on the timeline.',
+      'practice_keep_going': 'Keep the streak alive',
+      'practice_keep_going_subtitle': 'Do a quick session, then dive deeper.',
+      'practice_current_streak': '{days} days active',
+      'practice_hero_headline': 'Learning sprint',
       'search_results': 'Search results',
       'settings_appearance': 'Appearance',
       'settings_reading': 'Reading comfort',
@@ -145,6 +156,17 @@ class AppLocalizations {
       'today_learn': 'Öğren',
       'today_review': 'Tekrar ({due} bekliyor)',
       'today_reflect': 'Düşün',
+      'practice_hub_title': 'Pratik',
+      'practice_hub_subtitle': 'Serini korumak için kısa alıştırmalar.',
+      'practice_flashcards': '{due} kartı gözden geçir',
+      'practice_quiz': 'Quiz zamanı',
+      'practice_quiz_subtitle': 'Bir ders seç ve kendini test et.',
+      'practice_research': 'Önemli notlara göz at.',
+      'practice_timeline': 'Olayları zaman çizelgesine yerleştir.',
+      'practice_keep_going': 'Seriyi canlı tut',
+      'practice_keep_going_subtitle': 'Kısa bir oturum yap, sonra derinleş.',
+      'practice_current_streak': '{days} gün aktif',
+      'practice_hero_headline': 'Öğrenme atağı',
       'search_results': 'Arama sonuçları',
       'settings_appearance': 'Görünüm',
       'settings_reading': 'Okuma konforu',
@@ -233,6 +255,20 @@ class AppLocalizations {
   String todayReview(int due) =>
       _translate('today_review').replaceFirst('{due}', due.toString());
   String get todayReflect => _translate('today_reflect');
+  String get practiceHubTitle => _translate('practice_hub_title');
+  String get practiceHubSubtitle => _translate('practice_hub_subtitle');
+  String practiceFlashcards(int due) =>
+      _translate('practice_flashcards').replaceFirst('{due}', due.toString());
+  String get practiceQuiz => _translate('practice_quiz');
+  String get practiceQuizSubtitle => _translate('practice_quiz_subtitle');
+  String get practiceResearch => _translate('practice_research');
+  String get practiceTimeline => _translate('practice_timeline');
+  String get practiceKeepGoing => _translate('practice_keep_going');
+  String get practiceKeepGoingSubtitle =>
+      _translate('practice_keep_going_subtitle');
+  String practiceCurrentStreak(int days) =>
+      _translate('practice_current_streak').replaceFirst('{days}', days.toString());
+  String get practiceHeroHeadline => _translate('practice_hero_headline');
   String get searchResults => _translate('search_results');
   String get viewAll => _translate('view_all');
   String get settingsAppearance => _translate('settings_appearance');
@@ -256,6 +292,8 @@ class AppLocalizations {
   String quizScore(int correct, int total) => _translate('quiz_score')
       .replaceFirst('{correct}', correct.toString())
       .replaceFirst('{total}', total.toString());
+
+  String raw(String key) => _translate(key);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

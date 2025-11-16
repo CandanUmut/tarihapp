@@ -10,7 +10,6 @@ import '../../widgets/app_card.dart';
 import '../../widgets/error_state.dart';
 import '../../widgets/pill_button.dart';
 import '../../widgets/section_header.dart';
-import 'lesson_quiz_sheet.dart';
 
 class LessonDetailScreen extends ConsumerWidget {
   const LessonDetailScreen({super.key, required this.lessonId});
@@ -187,25 +186,26 @@ class LessonDetailScreen extends ConsumerWidget {
                         subtitle: 'Mark progress, save for later, or test your knowledge.',
                       ),
                       const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 12,
-                        runSpacing: 12,
-                        children: [
-                          PillButton(
-                            label: 'Mark done',
-                            onPressed: () async {
-                              final service = await ref.read(progressServiceProvider.future);
-                              await service.mark(contentId: lesson.id, percent: 1);
-                              if (context.mounted) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(content: Text('Marked as completed')),
-                                );
-                              }
-                            },
-                          ),
-                          PillButton(
-                            label: 'Bookmark',
-                            variant: PillButtonVariant.secondary,
+                          Wrap(
+                            spacing: 12,
+                            runSpacing: 12,
+                            children: [
+                              PillButton(
+                                label: 'Mark done',
+                                onPressed: () async {
+                                  await ref
+                                      .read(progressControllerProvider.notifier)
+                                      .mark(contentId: lesson.id, percent: 1);
+                                  if (context.mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(content: Text('Marked as completed')),
+                                    );
+                                  }
+                                },
+                              ),
+                              PillButton(
+                                label: 'Bookmark',
+                                variant: PillButtonVariant.secondary,
                             onPressed: () async {
                               final toggle = ref.read(bookmarkToggleProvider);
                               await toggle(lesson.id);
@@ -215,21 +215,16 @@ class LessonDetailScreen extends ConsumerWidget {
                                 );
                               }
                             },
+                              ),
+                              PillButton(
+                                label: 'Take quiz',
+                                variant: PillButtonVariant.secondary,
+                                onPressed: () => GoRouter.of(context).go('/lessons/${lesson.id}/quiz'),
+                              ),
+                            ],
                           ),
-                          PillButton(
-                            label: 'Take quiz',
-                            variant: PillButtonVariant.secondary,
-                            onPressed: () => showModalBottomSheet<void>(
-                              context: context,
-                              isScrollControlled: true,
-                              useSafeArea: true,
-                              builder: (context) => LessonQuizSheet(lesson: lesson),
-                            ),
-                          ),
-                        ],
+                        ]),
                       ),
-                    ]),
-                  ),
                 ),
               ],
             ),

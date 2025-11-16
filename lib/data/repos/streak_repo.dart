@@ -43,6 +43,25 @@ class StreakRepository {
     ]);
   }
 
+  Future<void> markTodayDone() async {
+    final today = AppDateUtils.encodeDate(DateTime.now());
+    final days = await _dao.fetchDays();
+    final existingIndex = days.indexWhere((element) => element.date == today);
+    if (existingIndex >= 0 && days[existingIndex].done) {
+      return;
+    }
+    if (existingIndex >= 0) {
+      final updated = List<StreakDay>.from(days);
+      updated[existingIndex] = StreakDay(date: today, done: true);
+      await _dao.saveDays(updated);
+      return;
+    }
+    await _dao.saveDays([
+      ...days,
+      StreakDay(date: today, done: true),
+    ]);
+  }
+
   bool _isConsecutive(int prev, int current) {
     final prevDate = AppDateUtils.decodeDate(prev);
     final currDate = AppDateUtils.decodeDate(current);

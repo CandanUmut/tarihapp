@@ -6,21 +6,22 @@ import '../../data/models/user_prefs.dart';
 import '../../features/explore/explore_screen.dart';
 import '../../features/history/history_timeline_screen.dart';
 import '../../features/home/home_screen.dart';
-import '../../features/today/today_screen.dart';
 import '../../features/lessons/flashcard_flow.dart';
 import '../../features/lessons/lesson_detail_screen.dart';
+import '../../features/lessons/lesson_quiz_screen.dart';
 import '../../features/lessons/lesson_list_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
 import '../../features/profile/achievements_screen.dart';
 import '../../features/profile/profile_screen.dart';
 import '../../features/profile/settings_screen.dart';
+import '../../features/today/practice_hub_screen.dart';
 import '../../features/research/research_reader_screen.dart';
 import '../../providers/prefs_providers.dart';
 
 final appRouterProvider = Provider<GoRouter>((ref) {
   final notifier = RouterNotifier(ref);
   return GoRouter(
-    initialLocation: '/today',
+    initialLocation: '/',
     refreshListenable: notifier,
     redirect: notifier.redirect,
     routes: [
@@ -28,14 +29,15 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: '/onboarding',
         builder: (context, state) => const OnboardingScreen(),
       ),
-      GoRoute(
-        path: '/today',
-        builder: (context, state) => const TodayScreen(),
-      ),
+      GoRoute(path: '/today', redirect: (_, __) => '/'),
       GoRoute(
         path: '/',
         builder: (context, state) => const HomeScreen(),
         routes: [
+          GoRoute(
+            path: 'practice',
+            builder: (context, state) => const PracticeHubScreen(),
+          ),
           GoRoute(
             path: 'lessons',
             builder: (context, state) => const LessonListScreen(),
@@ -43,6 +45,12 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: ':id',
                 builder: (context, state) => LessonDetailScreen(
+                  lessonId: state.pathParameters['id']!,
+                ),
+              ),
+              GoRoute(
+                path: ':id/quiz',
+                builder: (context, state) => LessonQuizScreen(
                   lessonId: state.pathParameters['id']!,
                 ),
               ),
@@ -99,7 +107,7 @@ class RouterNotifier extends ChangeNotifier {
           return '/onboarding';
         }
         if (value.onboardingDone && state.matchedLocation == '/onboarding') {
-          return '/today';
+          return '/';
         }
         return null;
       },

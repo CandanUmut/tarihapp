@@ -5,13 +5,12 @@ import 'package:go_router/go_router.dart';
 import '../../core/utils/markdown_utils.dart';
 import '../../data/models/lesson_card.dart';
 import '../../l10n/app_localizations.dart';
+import '../../providers/achievement_providers.dart';
 import '../../providers/content_providers.dart';
 import '../../providers/progress_providers.dart';
 import '../../providers/streak_providers.dart';
 import '../../widgets/app_card.dart';
 import '../../widgets/section_header.dart';
-import 'home_header.dart';
-import 'progress_header.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -22,65 +21,47 @@ class HomeScreen extends ConsumerWidget {
     final progressAsync = ref.watch(overallProgressProvider);
     final streakAsync = ref.watch(streakStatsProvider);
     final lessonsAsync = ref.watch(lessonCardsProvider);
-
+    final achievementsAsync = ref.watch(achievementsProvider);
     final bookSectionsAsync = ref.watch(bookSectionsProvider);
+
+    final streak = streakAsync.valueOrNull;
+    final progressValue = progressAsync.valueOrNull ?? 0;
+
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
           ref.invalidate(overallProgressProvider);
-          ref.invalidate(streakStatsProvider);
           ref.invalidate(lessonCardsProvider);
           ref.invalidate(bookSectionsProvider);
+          await ref.read(progressControllerProvider.notifier).refresh();
+          ref.invalidate(streakControllerProvider);
         },
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
           slivers: [
-            SliverAppBar(
-              pinned: true,
-              floating: true,
-              snap: true,
-              titleSpacing: 24,
-              backgroundColor: Colors.transparent,
-              surfaceTintColor: Colors.transparent,
-              title: Text(l10n.appTitle),
+            SliverToBoxAdapter(
+              child: _HeroHeader(
+                greeting: l10n.homeGreeting,
+                streakLabel: streak != null ? l10n.streakDays(streak.current) : l10n.today,
+                progressLabel: l10n.completionRate,
+                progressValue: progressValue,
+              ),
             ),
             SliverPadding(
-              padding: const EdgeInsets.fromLTRB(24, 8, 24, 24),
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
-                  HomeHeader(
-                    greeting: l10n.homeGreeting,
-                    streakAsync: streakAsync,
-                    streakLabelBuilder: (days) => l10n.streakDays(days),
-                  ),
-                  const SizedBox(height: 24),
-                  progressAsync.when(
-                    data: (percent) => ProgressHeader(
-                      value: percent,
-                      label: l10n.completionRate,
-                    ),
-                    loading: () => const SizedBox(
-                      height: 160,
-                      child: Center(child: CircularProgressIndicator()),
-                    ),
-                    error: (error, _) => Text(error.toString()),
-                  ),
-                  const SizedBox(height: 24),
                   lessonsAsync.when(
                     data: (lessons) {
                       if (lessons.isEmpty) {
                         return const SizedBox.shrink();
                       }
-                      final total = lessons.length;
-                      final beginnerCount = lessons.where((l) => l.level.toLowerCase() == 'beginner').length;
-                      final intermediateCount = lessons.where((l) => l.level.toLowerCase() == 'intermediate').length;
-                      final popularTags = _popularTags(lessons);
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           SectionHeader(
                             title: l10n.continueLearning,
-                            subtitle: 'You have $total structured lessons — $beginnerCount beginner and $intermediateCount intermediate modules ready to explore.',
+                            subtitle: 'Pick up the next lesson or jump into practice.',
                             action: TextButton(
                               onPressed: () => context.go('/lessons'),
                               child: Text(l10n.viewAll),
@@ -88,63 +69,87 @@ class HomeScreen extends ConsumerWidget {
                           ),
                           const SizedBox(height: 12),
                           _DailyFocusCard(lesson: lessons.first),
-                          const SizedBox(height: 16),
-                          _QuickStatsRow(
-                            lessons: lessons,
-                            popularTags: popularTags,
-                            onSeeAll: () => context.go('/lessons'),
-                          ),
-                          const SizedBox(height: 24),
-                          SectionHeader(
-                            title: 'Recommended next steps',
-                            subtitle: 'Curated picks based on trending interests and your current streak.',
-                          ),
-                          const SizedBox(height: 12),
-                          _RecommendedLessonsCarousel(lessons: lessons.take(6).toList()),
                         ],
                       );
                     },
-                    loading: () => const SizedBox(
-                      height: 180,
-                      child: Center(child: CircularProgressIndicator()),
-                    ),
+                    loading: () => const Center(child: Padding(
+                      padding: EdgeInsets.all(12),
+                      child: CircularProgressIndicator(),
+                    )),
                     error: (error, _) => Text(error.toString()),
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 20),
                   SectionHeader(
-                    title: l10n.explore,
-                    subtitle: 'Navigate to other study spaces and tools.',
+                    title: l10n.practiceHubTitle,
+                    subtitle: l10n.practiceHubSubtitle,
+                    action: TextButton(
+                      onPressed: () => context.go('/practice'),
+                      child: Text(l10n.practiceQuiz),
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  _QuickLinkGrid(
-                    links: [
-                      _QuickLinkData(
+                  _QuickActionGrid(
+                    actions: [
+                      _QuickAction(
                         label: l10n.lessons,
                         icon: Icons.menu_book,
-                        description: 'Browse structured modules with summaries and quizzes.',
                         onTap: () => context.go('/lessons'),
                       ),
-                      _QuickLinkData(
-                        label: l10n.history,
-                        icon: Icons.timeline,
-                        description: 'Timeline views to place events in context.',
-                        onTap: () => context.go('/history'),
-                      ),
-                      _QuickLinkData(
-                        label: l10n.research,
-                        icon: Icons.science,
-                        description: 'Read curated academic references and excerpts.',
-                        onTap: () => context.go('/research'),
-                      ),
-                      _QuickLinkData(
+                      _QuickAction(
                         label: l10n.flashcards,
                         icon: Icons.bolt,
-                        description: 'Quick reviews to reinforce key concepts.',
                         onTap: () => context.go('/flashcards'),
+                      ),
+                      _QuickAction(
+                        label: l10n.practiceHubTitle,
+                        icon: Icons.task_alt,
+                        onTap: () => context.go('/practice'),
+                      ),
+                      _QuickAction(
+                        label: l10n.explore,
+                        icon: Icons.explore,
+                        onTap: () => context.go('/explore'),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 20),
+                  progressAsync.when(
+                    data: (value) => AppCard(
+                      gradient: LinearGradient(
+                        colors: [
+                          Theme.of(context).colorScheme.primary.withOpacity(0.12),
+                          Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(l10n.overallProgress, style: Theme.of(context).textTheme.titleMedium),
+                          const SizedBox(height: 8),
+                          LinearProgressIndicator(value: value, minHeight: 10),
+                          const SizedBox(height: 8),
+                          Text(l10n.achievementProgress((value * 100).toStringAsFixed(0))),
+                        ],
+                      ),
+                    ),
+                    loading: () => const Center(child: CircularProgressIndicator()),
+                    error: (error, _) => Text(error.toString()),
+                  ),
+                  const SizedBox(height: 20),
+                  achievementsAsync.when(
+                    data: (items) => _AchievementsStrip(items: items.take(3).toList()),
+                    loading: () => const SizedBox(height: 80, child: Center(child: CircularProgressIndicator())),
+                    error: (error, _) => Text(error.toString()),
+                  ),
+                  const SizedBox(height: 20),
+                  lessonsAsync.when(
+                    data: (lessons) => _RecommendedLessonsCarousel(lessons: lessons.take(5).toList()),
+                    loading: () => const SizedBox(height: 120, child: Center(child: CircularProgressIndicator())),
+                    error: (error, _) => Text(error.toString()),
+                  ),
+                  const SizedBox(height: 20),
                   bookSectionsAsync.when(
                     data: (sections) {
                       if (sections.isEmpty) {
@@ -155,7 +160,7 @@ class HomeScreen extends ConsumerWidget {
                         children: [
                           SectionHeader(
                             title: 'From the study library',
-                            subtitle: 'Short selections from foundational texts to deepen context.',
+                            subtitle: 'Short selections from foundational texts.',
                             action: TextButton(
                               onPressed: () => context.go('/research'),
                               child: const Text('Open library'),
@@ -166,13 +171,118 @@ class HomeScreen extends ConsumerWidget {
                         ],
                       );
                     },
-                    loading: () => const SizedBox(
-                      height: 160,
-                      child: Center(child: CircularProgressIndicator()),
-                    ),
+                    loading: () => const SizedBox(height: 120, child: Center(child: CircularProgressIndicator())),
                     error: (error, _) => Text(error.toString()),
                   ),
                 ]),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HeroHeader extends StatelessWidget {
+  const _HeroHeader({
+    required this.greeting,
+    required this.streakLabel,
+    required this.progressLabel,
+    required this.progressValue,
+  });
+
+  final String greeting;
+  final String streakLabel;
+  final String progressLabel;
+  final double progressValue;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [theme.colorScheme.primary, theme.colorScheme.secondary],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(32),
+          bottomRight: Radius.circular(32),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 48, 20, 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        greeting,
+                        style: theme.textTheme.headlineMedium?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        streakLabel,
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          color: theme.colorScheme.onPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  onPressed: () => GoRouter.of(context).go('/profile/settings'),
+                  icon: Icon(Icons.settings, color: theme.colorScheme.onPrimary),
+                  tooltip: AppLocalizations.of(context).settings,
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            AppCard(
+              background: theme.colorScheme.onPrimary.withOpacity(0.1),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          progressLabel,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: theme.colorScheme.onPrimary,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        LinearProgressIndicator(
+                          value: progressValue,
+                          minHeight: 10,
+                          backgroundColor: theme.colorScheme.onPrimary.withOpacity(0.2),
+                          valueColor: AlwaysStoppedAnimation(theme.colorScheme.onPrimary),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  FilledButton.tonal(
+                    style: FilledButton.styleFrom(
+                      backgroundColor: theme.colorScheme.onPrimary,
+                      foregroundColor: theme.colorScheme.primary,
+                    ),
+                    onPressed: () => GoRouter.of(context).go('/practice'),
+                    child: Text(AppLocalizations.of(context).actionContinue),
+                  ),
+                ],
               ),
             ),
           ],
@@ -229,139 +339,26 @@ class _DailyFocusCard extends StatelessWidget {
   }
 }
 
-class _QuickStatsRow extends StatelessWidget {
-  const _QuickStatsRow({
-    required this.lessons,
-    required this.popularTags,
-    required this.onSeeAll,
-  });
+class _QuickActionGrid extends StatelessWidget {
+  const _QuickActionGrid({required this.actions});
 
-  final List<LessonCard> lessons;
-  final List<String> popularTags;
-  final VoidCallback onSeeAll;
-
-  @override
-  Widget build(BuildContext context) {
-    final totalQuiz = lessons.fold<int>(0, (acc, lesson) => acc + lesson.quiz.length);
-    final theme = Theme.of(context);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final isWide = constraints.maxWidth > 600;
-        final children = [
-          _StatTile(
-            icon: Icons.auto_stories,
-            title: 'Lessons ready',
-            value: '${lessons.length}',
-            subtitle: 'Curated learning modules',
-          ),
-          _StatTile(
-            icon: Icons.quiz,
-            title: 'Practice questions',
-            value: '$totalQuiz',
-            subtitle: 'Self-check quizzes',
-          ),
-          _StatTile(
-            icon: Icons.local_offer,
-            title: 'Popular topics',
-            value: popularTags.join(', '),
-            subtitle: 'Tap explore to dive deeper',
-          ),
-          AppCard(
-            onTap: onSeeAll,
-            child: Row(
-              children: [
-                Icon(Icons.play_circle, color: theme.colorScheme.primary),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Text(
-                    'Continue where you left off',
-                    style: theme.textTheme.titleMedium,
-                  ),
-                ),
-                const Icon(Icons.arrow_forward_ios, size: 16),
-              ],
-            ),
-          ),
-        ];
-
-        return Wrap(
-          spacing: 16,
-          runSpacing: 16,
-          children: children
-              .map(
-                (child) => SizedBox(
-                  width: isWide ? (constraints.maxWidth - 16) / 2 : constraints.maxWidth,
-                  child: child,
-                ),
-              )
-              .toList(growable: false),
-        );
-      },
-    );
-  }
-}
-
-class _StatTile extends StatelessWidget {
-  const _StatTile({
-    required this.icon,
-    required this.title,
-    required this.value,
-    required this.subtitle,
-  });
-
-  final IconData icon;
-  final String title;
-  final String value;
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return AppCard(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, color: theme.colorScheme.primary),
-          const SizedBox(height: 12),
-          Text(title, style: theme.textTheme.labelLarge),
-          const SizedBox(height: 6),
-          Text(
-            value,
-            style: theme.textTheme.headlineMedium,
-          ),
-          const SizedBox(height: 4),
-          Text(
-            subtitle,
-            style: theme.textTheme.bodyMedium?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _QuickLinkGrid extends StatelessWidget {
-  const _QuickLinkGrid({required this.links});
-
-  final List<_QuickLinkData> links;
+  final List<_QuickAction> actions;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isWide = constraints.maxWidth > 700;
+        final isWide = constraints.maxWidth > 640;
         final tileWidth = isWide ? (constraints.maxWidth - 16) / 2 : constraints.maxWidth;
         return Wrap(
           spacing: 16,
           runSpacing: 16,
-          children: links
+          children: actions
               .map(
-                (link) => SizedBox(
+                (action) => SizedBox(
                   width: tileWidth,
                   child: AppCard(
-                    onTap: link.onTap,
+                    onTap: action.onTap,
                     child: Row(
                       children: [
                         Container(
@@ -370,23 +367,11 @@ class _QuickLinkGrid extends StatelessWidget {
                             color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
                             borderRadius: BorderRadius.circular(16),
                           ),
-                          child: Icon(link.icon, color: Theme.of(context).colorScheme.primary),
+                          child: Icon(action.icon, color: Theme.of(context).colorScheme.primary),
                         ),
                         const SizedBox(width: 16),
                         Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(link.label, style: Theme.of(context).textTheme.titleMedium),
-                              const SizedBox(height: 4),
-                              Text(
-                                link.description,
-                                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                                    ),
-                              ),
-                            ],
-                          ),
+                          child: Text(action.label, style: Theme.of(context).textTheme.titleMedium),
                         ),
                         const Icon(Icons.arrow_forward_ios, size: 16),
                       ],
@@ -401,17 +386,11 @@ class _QuickLinkGrid extends StatelessWidget {
   }
 }
 
-class _QuickLinkData {
-  const _QuickLinkData({
-    required this.label,
-    required this.icon,
-    required this.description,
-    required this.onTap,
-  });
+class _QuickAction {
+  const _QuickAction({required this.label, required this.icon, required this.onTap});
 
   final String label;
   final IconData icon;
-  final String description;
   final VoidCallback onTap;
 }
 
@@ -422,42 +401,55 @@ class _RecommendedLessonsCarousel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 210,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: lessons.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 16),
-        itemBuilder: (context, index) {
-          final lesson = lessons[index];
-          return SizedBox(
-            width: 280,
-            child: AppCard(
-              onTap: () => GoRouter.of(context).go('/lessons/${lesson.id}'),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(lesson.title, style: Theme.of(context).textTheme.titleMedium),
-                  const SizedBox(height: 8),
-                  Text(
-                    lesson.summary,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
+    if (lessons.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionHeader(
+          title: 'Recommended next steps',
+          subtitle: 'Curated picks based on trending interests and your streak.',
+        ),
+        const SizedBox(height: 12),
+        SizedBox(
+          height: 210,
+          child: ListView.separated(
+            scrollDirection: Axis.horizontal,
+            itemCount: lessons.length,
+            separatorBuilder: (_, __) => const SizedBox(width: 16),
+            itemBuilder: (context, index) {
+              final lesson = lessons[index];
+              return SizedBox(
+                width: 280,
+                child: AppCard(
+                  onTap: () => GoRouter.of(context).go('/lessons/${lesson.id}'),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(lesson.title, style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: 8),
+                      Text(
+                        lesson.summary,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      const Spacer(),
+                      Wrap(
+                        spacing: 6,
+                        children: lesson.tags
+                            .take(3)
+                            .map((tag) => Chip(label: Text(tag)))
+                            .toList(growable: false),
+                      ),
+                    ],
                   ),
-                  const Spacer(),
-                  Wrap(
-                    spacing: 6,
-                    children: lesson.tags
-                        .take(3)
-                        .map((tag) => Chip(label: Text(tag)))
-                        .toList(growable: false),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
+                ),
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
@@ -490,14 +482,66 @@ class _LibraryExcerpt extends StatelessWidget {
   }
 }
 
-List<String> _popularTags(List<LessonCard> lessons) {
-  final counts = <String, int>{};
-  for (final lesson in lessons) {
-    for (final tag in lesson.tags) {
-      counts[tag] = (counts[tag] ?? 0) + 1;
+class _AchievementsStrip extends StatelessWidget {
+  const _AchievementsStrip({required this.items});
+
+  final List<AchievementStatus> items;
+
+  @override
+  Widget build(BuildContext context) {
+    if (items.isEmpty) {
+      return const SizedBox.shrink();
     }
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SectionHeader(
+          title: AppLocalizations.of(context).achievements,
+          subtitle: 'Badges update in real time as you study.',
+          action: TextButton(
+            onPressed: () => GoRouter.of(context).go('/profile/achievements'),
+            child: Text(AppLocalizations.of(context).viewAll),
+          ),
+        ),
+        const SizedBox(height: 12),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: items
+                .map(
+                  (item) => Padding(
+                    padding: const EdgeInsets.only(right: 12),
+                    child: AppCard(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(item.icon, style: const TextStyle(fontSize: 28)),
+                          const SizedBox(height: 6),
+                          Text(
+                            AppLocalizations.of(context).raw(item.titleKey),
+                            style: theme.textTheme.titleMedium,
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            AppLocalizations.of(context).raw(item.descriptionKey),
+                            style: theme.textTheme.bodyMedium?.copyWith(
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          LinearProgressIndicator(value: item.progress, minHeight: 6),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+                .toList(growable: false),
+          ),
+        ),
+      ],
+    );
   }
-  final sorted = counts.entries.toList()
-    ..sort((a, b) => b.value.compareTo(a.value));
-  return sorted.take(3).map((e) => e.key).toList(growable: false);
 }
