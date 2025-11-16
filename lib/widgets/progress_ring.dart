@@ -1,61 +1,30 @@
 import 'package:flutter/material.dart';
 
 class ProgressRing extends StatelessWidget {
-  const ProgressRing({super.key, required this.percent, required this.label});
-
-  final double percent;
+  final double value; // 0..1
   final String label;
-
+  const ProgressRing({super.key, required this.value, required this.label});
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final clamped = percent.clamp(0.0, 1.0);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          width: 108,
-          height: 108,
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: 0, end: clamped),
-                duration: const Duration(milliseconds: 450),
-                builder: (context, value, child) {
-                  return CircularProgressIndicator(
-                    value: value,
-                    strokeWidth: 9,
-                    backgroundColor: theme.colorScheme.surfaceVariant,
-                    valueColor: AlwaysStoppedAnimation<Color>(
-                      theme.colorScheme.primary,
-                    ),
-                  );
-                },
-              ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      '${(clamped * 100).round()}%',
-                      style: theme.textTheme.headlineMedium,
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      label,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelMedium?.copyWith(
-                        color: theme.colorScheme.onSurfaceVariant,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+    return TweenAnimationBuilder<double>(
+      tween: Tween(begin: 0, end: value.clamp(0, 1)),
+      duration: const Duration(milliseconds: 800),
+      curve: Curves.easeOutCubic,
+      builder: (c, v, _) => Stack(
+        alignment: Alignment.center,
+        children: [
+          SizedBox(
+            width: 120,
+            height: 120,
+            child: CircularProgressIndicator(
+              value: v,
+              strokeWidth: 10,
+              strokeCap: StrokeCap.round,
+            ),
           ),
-        ),
-      ],
+          Text(label, style: Theme.of(context).textTheme.titleMedium),
+        ],
+      ),
     );
   }
 }

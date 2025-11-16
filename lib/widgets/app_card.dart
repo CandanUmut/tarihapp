@@ -21,22 +21,22 @@ class AppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final decoration = BoxDecoration(
-      borderRadius: BorderRadius.circular(24),
-      color: gradient == null ? background ?? theme.colorScheme.surface : null,
-      gradient: gradient,
-      border: border ?? Border.all(color: theme.colorScheme.outlineVariant, width: 0.6),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(theme.brightness == Brightness.light ? 0.04 : 0.25),
-          blurRadius: 18,
-          offset: const Offset(0, 10),
-        ),
-      ],
-    );
-
-    final content = Container(
-      decoration: decoration,
+    final content = AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      curve: Curves.easeOutCubic,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        color: gradient == null ? background ?? theme.colorScheme.surface : null,
+        gradient: gradient,
+        border: border ?? Border.all(color: theme.colorScheme.outlineVariant, width: 0.6),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(theme.brightness == Brightness.light ? 0.04 : 0.25),
+            blurRadius: 18,
+            offset: const Offset(0, 10),
+          ),
+        ],
+      ),
       child: Padding(
         padding: padding ?? const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         child: child,
