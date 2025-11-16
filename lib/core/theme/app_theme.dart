@@ -6,89 +6,87 @@ import 'app_typography.dart';
 class AppTheme {
   const AppTheme._();
 
-  static ThemeData get light => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.primary,
-          brightness: Brightness.light,
-        ),
-        scaffoldBackgroundColor: AppColors.backgroundLight,
-        textTheme: const TextTheme(
-          displayLarge: AppTypography.displayLarge,
-          headlineMedium: AppTypography.headlineMedium,
-          bodyLarge: AppTypography.bodyLarge,
-          labelLarge: AppTypography.labelLarge,
-        ),
-        useMaterial3: true,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        chipTheme: ChipThemeData(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          labelStyle: const TextStyle(fontWeight: FontWeight.w600),
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: AppColors.surfaceLight,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.textSecondary.withOpacity(0.1)),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.textSecondary.withOpacity(0.1)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.primary.withOpacity(0.6), width: 2),
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          ),
-        ),
-      );
+  static const _seed = Color(0xFF5B6F92);
+  static const _radius = 24.0;
 
-  static ThemeData get dark => ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: AppColors.secondary,
-          brightness: Brightness.dark,
+  static ThemeData light(BuildContext context) {
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: _seed,
+      brightness: Brightness.light,
+    );
+
+    return _baseTheme(colorScheme).copyWith(
+      scaffoldBackgroundColor: AppColors.backgroundLight,
+      cardColor: colorScheme.surface,
+      textTheme: _textTheme,
+    );
+  }
+
+  static ThemeData dark(BuildContext context) {
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: _seed,
+      brightness: Brightness.dark,
+    );
+
+    return _baseTheme(colorScheme).copyWith(
+      scaffoldBackgroundColor: AppColors.backgroundDark,
+      cardColor: colorScheme.surface,
+      textTheme: _textTheme,
+    );
+  }
+
+  static ThemeData _baseTheme(ColorScheme colorScheme) {
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: colorScheme.surface,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_radius),
+          borderSide: BorderSide(color: colorScheme.outlineVariant.withOpacity(0.4)),
         ),
-        scaffoldBackgroundColor: AppColors.backgroundDark,
-        textTheme: const TextTheme(
-          displayLarge: AppTypography.displayLarge,
-          headlineMedium: AppTypography.headlineMedium,
-          bodyLarge: AppTypography.bodyLarge,
-          labelLarge: AppTypography.labelLarge,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_radius),
+          borderSide: BorderSide(color: colorScheme.outlineVariant.withOpacity(0.4)),
         ),
-        useMaterial3: true,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        chipTheme: ChipThemeData(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-          labelStyle: const TextStyle(fontWeight: FontWeight.w600),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_radius),
+          borderSide: BorderSide(color: colorScheme.primary.withOpacity(0.8), width: 2),
         ),
-        inputDecorationTheme: InputDecorationTheme(
-          filled: true,
-          fillColor: AppColors.surfaceDark,
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.textSecondary.withOpacity(0.1)),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.textSecondary.withOpacity(0.1)),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(28),
-            borderSide: BorderSide(color: AppColors.secondary.withOpacity(0.6), width: 2),
-          ),
+      ),
+      chipTheme: ChipThemeData(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_radius)),
+        labelStyle: const TextStyle(fontWeight: FontWeight.w600),
+        side: BorderSide(color: colorScheme.outlineVariant),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          shape: const StadiumBorder(),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
         ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-          ),
-        ),
-      );
+      ),
+      cardTheme: CardTheme(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(_radius)),
+        elevation: 0,
+      ),
+      appBarTheme: AppBarTheme(
+        centerTitle: false,
+        backgroundColor: Colors.transparent,
+        foregroundColor: colorScheme.onSurface,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        titleTextStyle: _textTheme.titleMedium?.copyWith(color: colorScheme.onSurface),
+      ),
+    );
+  }
+
+  static const TextTheme _textTheme = TextTheme(
+    displayLarge: AppTypography.displayLarge,
+    headlineMedium: AppTypography.headlineMedium,
+    bodyLarge: AppTypography.bodyLarge,
+    labelLarge: AppTypography.labelLarge,
+  );
 }

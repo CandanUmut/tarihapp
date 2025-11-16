@@ -6,6 +6,7 @@ import '../../data/models/user_prefs.dart';
 import '../../features/explore/explore_screen.dart';
 import '../../features/history/history_timeline_screen.dart';
 import '../../features/home/home_screen.dart';
+import '../../features/today/today_screen.dart';
 import '../../features/lessons/flashcard_flow.dart';
 import '../../features/lessons/lesson_detail_screen.dart';
 import '../../features/lessons/lesson_list_screen.dart';
@@ -19,13 +20,17 @@ import '../../providers/prefs_providers.dart';
 final appRouterProvider = Provider<GoRouter>((ref) {
   final notifier = RouterNotifier(ref);
   return GoRouter(
-    initialLocation: '/',
+    initialLocation: '/today',
     refreshListenable: notifier,
     redirect: notifier.redirect,
     routes: [
       GoRoute(
         path: '/onboarding',
         builder: (context, state) => const OnboardingScreen(),
+      ),
+      GoRoute(
+        path: '/today',
+        builder: (context, state) => const TodayScreen(),
       ),
       GoRoute(
         path: '/',
@@ -94,7 +99,7 @@ class RouterNotifier extends ChangeNotifier {
           return '/onboarding';
         }
         if (value.onboardingDone && state.matchedLocation == '/onboarding') {
-          return '/';
+          return '/today';
         }
         return null;
       },

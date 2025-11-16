@@ -4,35 +4,59 @@ class PillButton extends StatelessWidget {
   const PillButton({
     super.key,
     required this.label,
-    this.onPressed,
-    this.variant = PillButtonVariant.primary,
+    this.icon,
+    this.onTap,
+    this.padding,
   });
 
   final String label;
-  final VoidCallback? onPressed;
-  final PillButtonVariant variant;
+  final IconData? icon;
+  final VoidCallback? onTap;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final colorScheme = theme.colorScheme;
-    final background = variant == PillButtonVariant.primary
-        ? colorScheme.primary
-        : colorScheme.surfaceVariant;
-    final foreground = variant == PillButtonVariant.primary
-        ? colorScheme.onPrimary
-        : colorScheme.onSurfaceVariant;
-    return FilledButton(
-      onPressed: onPressed,
-      style: FilledButton.styleFrom(
-        shape: const StadiumBorder(),
-        backgroundColor: background,
-        foregroundColor: foreground,
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+    final child = AnimatedContainer(
+      duration: const Duration(milliseconds: 200),
+      padding: padding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.surface,
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: theme.colorScheme.outlineVariant),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(theme.brightness == Brightness.light ? 0.05 : 0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 6),
+          ),
+        ],
       ),
-      child: Text(label),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (icon != null) ...[
+            Icon(icon, size: 18, color: theme.colorScheme.primary),
+            const SizedBox(width: 8),
+          ],
+          Text(
+            label,
+            style: theme.textTheme.labelLarge?.copyWith(color: theme.colorScheme.onSurface),
+          ),
+        ],
+      ),
+    );
+
+    if (onTap == null) return child;
+
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(24),
+        onTap: onTap,
+        child: child,
+      ),
     );
   }
 }
-
-enum PillButtonVariant { primary, secondary }

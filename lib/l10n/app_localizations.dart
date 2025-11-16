@@ -63,6 +63,9 @@ class AppLocalizations {
       'timeline_title': 'Prophetic timeline',
       'map_notes': 'Map notes',
       'today': 'Today',
+      'today_learn': 'Learn',
+      'today_review': 'Review ({due} due)',
+      'today_reflect': 'Reflect',
       'search_results': 'Search results',
       'settings_appearance': 'Appearance',
       'settings_reading': 'Reading comfort',
@@ -139,6 +142,9 @@ class AppLocalizations {
       'timeline_title': 'Peygamberler kronolojisi',
       'map_notes': 'Harita notları',
       'today': 'Bugün',
+      'today_learn': 'Öğren',
+      'today_review': 'Tekrar ({due} bekliyor)',
+      'today_reflect': 'Düşün',
       'search_results': 'Arama sonuçları',
       'settings_appearance': 'Görünüm',
       'settings_reading': 'Okuma konforu',
@@ -223,6 +229,10 @@ class AppLocalizations {
   String get timelineTitle => _translate('timeline_title');
   String get mapNotes => _translate('map_notes');
   String get today => _translate('today');
+  String get todayLearn => _translate('today_learn');
+  String todayReview(int due) =>
+      _translate('today_review').replaceFirst('{due}', due.toString());
+  String get todayReflect => _translate('today_reflect');
   String get searchResults => _translate('search_results');
   String get viewAll => _translate('view_all');
   String get settingsAppearance => _translate('settings_appearance');

@@ -17,8 +17,8 @@ class App extends ConsumerWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
+      theme: AppTheme.light(context),
+      darkTheme: AppTheme.dark(context),
       themeMode: ref.watch(themeModeProvider),
       locale: locale,
       supportedLocales: AppLocalizations.supportedLocales,

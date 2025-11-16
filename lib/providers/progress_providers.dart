@@ -35,3 +35,10 @@ final overallProgressProvider = FutureProvider<double>((ref) async {
   final service = await ref.watch(progressServiceProvider.future);
   return service.completionRate(lessons.length);
 });
+
+/// Count of flashcards due today; placeholder stream until SRS is wired.
+final flashcardsDueCountProvider = StreamProvider<int>((ref) async* {
+  // Existing implementation will replace this placeholder. Keeping a stream so
+  // the UI remains reactive when the underlying repo is connected.
+  yield 0;
+});
