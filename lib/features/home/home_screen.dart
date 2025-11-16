@@ -56,7 +56,7 @@ class HomeScreen extends ConsumerWidget {
                   const SizedBox(height: 24),
                   progressAsync.when(
                     data: (percent) => ProgressHeader(
-                      percent: percent,
+                      value: percent,
                       label: l10n.completionRate,
                     ),
                     loading: () => const SizedBox(
