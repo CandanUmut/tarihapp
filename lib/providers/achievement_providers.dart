@@ -22,21 +22,38 @@ class AchievementStatus {
   final String icon;
 }
 
-final achievementsProvider = FutureProvider<List<AchievementStatus>>((ref) async {
-  final lessons = await ref.watch(lessonCardsProvider.future);
-  final progressEntries = await ref.watch(progressEntriesProvider.future);
-  final streakStats = await ref.watch(streakStatsProvider.future);
+final achievementsProvider = Provider<AsyncValue<List<AchievementStatus>>>((ref) {
+  final lessons = ref.watch(lessonCardsProvider);
+  final progressEntries = ref.watch(progressControllerProvider);
+  final streakStats = ref.watch(streakStatsProvider);
+
+  if (lessons.isLoading || progressEntries.isLoading || streakStats.isLoading) {
+    return const AsyncValue.loading();
+  }
+  if (lessons.hasError) {
+    return AsyncValue.error(lessons.error!, lessons.stackTrace);
+  }
+  if (progressEntries.hasError) {
+    return AsyncValue.error(progressEntries.error!, progressEntries.stackTrace);
+  }
+  if (streakStats.hasError) {
+    return AsyncValue.error(streakStats.error!, streakStats.stackTrace);
+  }
+
+  final lessonList = lessons.value ?? [];
+  final progressList = progressEntries.value ?? [];
+  final streak = streakStats.value;
 
   int completedLessons = 0;
   double averageQuizScore = 0;
-  if (progressEntries.isNotEmpty) {
-    completedLessons = progressEntries.where((element) => element.completed).length;
-    averageQuizScore = progressEntries.map((e) => e.percent).reduce((a, b) => a + b) /
-        progressEntries.length;
+  if (progressList.isNotEmpty) {
+    completedLessons = progressList.where((element) => element.completed).length;
+    averageQuizScore =
+        progressList.map((e) => e.percent).reduce((a, b) => a + b) / progressList.length;
   }
-  final totalLessons = lessons.length;
+  final totalLessons = lessonList.length;
   final completionRatio = totalLessons == 0 ? 0 : completedLessons / totalLessons;
-  final activeDays = streakStats.days.where((element) => element.done).length;
+  final activeDays = streak?.days.where((element) => element.done).length ?? 0;
 
   AchievementStatus buildAchievement({
     required String id,
@@ -69,8 +86,8 @@ final achievementsProvider = FutureProvider<List<AchievementStatus>>((ref) async
       id: 'consistent-scholar',
       titleKey: 'achievement_consistent_scholar_title',
       descriptionKey: 'achievement_consistent_scholar_desc',
-      progress: (streakStats.longest / 7).clamp(0, 1),
-      unlocked: streakStats.longest >= 7,
+      progress: ((streak?.longest ?? 0) / 7).clamp(0, 1),
+      unlocked: (streak?.longest ?? 0) >= 7,
       icon: '🔥',
     ),
     buildAchievement(
@@ -99,5 +116,5 @@ final achievementsProvider = FutureProvider<List<AchievementStatus>>((ref) async
     ),
   ];
 
-  return achievements;
+  return AsyncValue.data(achievements);
 });

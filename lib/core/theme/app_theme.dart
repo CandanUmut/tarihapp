@@ -6,8 +6,8 @@ import 'app_typography.dart';
 class AppTheme {
   const AppTheme._();
 
-  static const _seed = Color(0xFF5B6F92);
-  static const _radius = 24.0;
+  static const _seed = Color(0xFF2ECC71);
+  static const _radius = 20.0;
 
   static ThemeData light(BuildContext context) {
     final colorScheme = ColorScheme.fromSeed(
@@ -16,7 +16,7 @@ class AppTheme {
     );
 
     return _baseTheme(colorScheme).copyWith(
-      scaffoldBackgroundColor: AppColors.backgroundLight,
+      scaffoldBackgroundColor: const Color(0xFFF5FFF4),
       cardColor: colorScheme.surface,
       textTheme: _textTheme,
     );
@@ -62,10 +62,22 @@ class AppTheme {
         labelStyle: const TextStyle(fontWeight: FontWeight.w600),
         side: BorderSide(color: colorScheme.outlineVariant),
       ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: Colors.transparent,
+        indicatorColor: colorScheme.primary.withOpacity(0.14),
+        iconTheme: MaterialStateProperty.all(
+          IconThemeData(color: colorScheme.primary, size: 24),
+        ),
+        labelTextStyle: MaterialStateProperty.all(
+          const TextStyle(fontWeight: FontWeight.w700),
+        ),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           shape: const StadiumBorder(),
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
         ),
       ),
       cardTheme: CardThemeData(

@@ -13,4 +13,8 @@ class StreakService {
   Future<void> toggleToday() {
     return _repo.toggleToday();
   }
+
+  Future<void> markTodayDone() {
+    return _repo.markTodayDone();
+  }
 }
